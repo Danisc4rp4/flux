@@ -1,0 +1,59 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmChart
+metadata:
+  name: grafana
+  namespace: flux-system
+spec:
+  interval: 5m0s
+  chart: grafana
+  reconcileStrategy: ChartVersion
+  sourceRef:
+    kind: HelmRepository
+    name: grafana
+  version: '8.5.2'
+
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmChart
+metadata:
+  name: mimir-distributed
+  namespace: flux-system
+spec:
+  interval: 5m0s
+  chart: mimir-distributed
+  reconcileStrategy: ChartVersion
+  sourceRef:
+    kind: HelmRepository
+    name: grafana
+  version: '5.5.0-weekly.310'
+
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmChart
+metadata:
+  name: loki-distributed
+  namespace: flux-system
+spec:
+  interval: 5m0s
+  chart: loki-distributed
+  reconcileStrategy: ChartVersion
+  sourceRef:
+    kind: HelmRepository
+    name: grafana
+  version: '0.79.4'
+
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmChart
+metadata:
+  name: tempo-distributed
+  namespace: flux-system
+spec:
+  interval: 5m0s
+  chart: tempo-distributed
+  reconcileStrategy: ChartVersion
+  sourceRef:
+    kind: HelmRepository
+    name: grafana
+  version: '1.10.3'
