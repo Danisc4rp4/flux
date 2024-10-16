@@ -1,0 +1,15 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmChart
+metadata:
+  name: mimir-distributed
+  namespace: flux-system
+spec:
+  interval: 5m0s
+  chart: mimir-distributed
+  reconcileStrategy: ChartVersion
+  sourceRef:
+    kind: HelmRepository
+    name: grafana
+  version: '5.5.0-weekly.310'
+

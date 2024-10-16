@@ -1,0 +1,14 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmChart
+metadata:
+  name: tempo-distributed
+  namespace: flux-system
+spec:
+  interval: 5m0s
+  chart: tempo-distributed
+  reconcileStrategy: ChartVersion
+  sourceRef:
+    kind: HelmRepository
+    name: grafana
+  version: '1.10.3'

@@ -1,0 +1,15 @@
+
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmChart
+metadata:
+  name: loki-distributed
+  namespace: flux-system
+spec:
+  interval: 5m0s
+  chart: loki-distributed
+  reconcileStrategy: ChartVersion
+  sourceRef:
+    kind: HelmRepository
+    name: grafana
+  version: '0.79.4'
