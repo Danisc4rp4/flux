@@ -3,3 +3,7 @@ kind: Kustomization
 resources:
 - gotk-components.yaml
 - gotk-sync.yaml
+images:
+- name: ghcr.io/fluxcd/helm-controller
+  newName: europe-west2-docker.pkg.dev/cicd-438419/test/helm-controller
+  newTag: df6c17ae8ff741e30e20f7829a27c5721e571ba8
